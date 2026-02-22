@@ -1,4 +1,6 @@
-﻿using SFML.Graphics;
+﻿namespace Chess_csharp;
+
+using SFML.Graphics;
 using SFML.Window;
 using SFML.System;
 
