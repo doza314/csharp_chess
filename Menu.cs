@@ -1,5 +1,4 @@
 namespace Chess_csharp;
-using globalEnums;
 using SFML.Graphics;
 using SFML.Window;
 using SFML.System;
