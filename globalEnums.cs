@@ -1,44 +1,43 @@
-namespace globalEnums
-{
+namespace Chess_csharp;
+
     public enum Colors
     {
-        white,
-        black
+        White,
+        Black
     }
     
-    public enum pieceType
+    public enum PieceType
     {
-        wPawn,
-        wKnight, 
-        wBishop,
-        wRook,
-        wQueen,
-        wKing,
-        bPawn,
-        bKnight, 
-        bBishop, 
-        bRook, 
-        bQueen, 
-        bKing,
-        none
+        WPawn,
+        WKnight, 
+        WBishop,
+        WRook,
+        WQueen,
+        WKing,
+        BPawn,
+        BKnight, 
+        BBishop, 
+        BRook, 
+        BQueen, 
+        BKing,
+        None
     }
     
-    public enum menuType
+    public enum MenuType
     {
-        start, 
-        game,
-        singleplayer,
-        multiplayer,
-        lan,
-        online,
-        pause,
-        end,
-        NONE
+        Start, 
+        Game,
+        Singleplayer,
+        Multiplayer, 
+        Lan,
+        Online,
+        Pause,
+        End,
+        None
 }
     
-    public enum gameType
+    public enum GameType
     {
-        single,
-        multi
+        Single,
+        Multi
     }
-}

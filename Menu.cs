@@ -1,50 +1,50 @@
 namespace Chess_csharp;
+
 using SFML.Graphics;
 using SFML.Window;
 using SFML.System;
-using SFML.Graphics;
 
-class menu
-{
-    private menuType type;
-    private Window window;
-    private Vector2f dimensions;
+class Menu
+{                                                   
+    private MenuType Type;
+    private Window Window;
+    private Vector2f Dimensions;
 
-    public menu(menuType t, Window w, Vector2f d)
+    public Menu(MenuType t, Window w, Vector2f d)
     {  
-        type = t;
-        window = w;
-        dimensions = d;
+        Type = t;
+        Window = w;
+        Dimensions = d;
 
-        if (type == menuType.start)
+        if (Type == MenuType.Start)
         {
               
         }
-        else if (type == menuType.singleplayer)
+        else if (Type == MenuType.Singleplayer)
         {
             
         }
-        else if (type == menuType.multiplayer)
+        else if (Type == MenuType.Multiplayer)
         {
             
         }
-        else if (type == menuType.lan)
+        else if (Type == MenuType.Lan)
         {
             
         }
-        else if (type == menuType.online)
+        else if (Type == MenuType.Online)
         {
             
         }
-        else if (type == menuType.game)
+        else if (Type == MenuType.Game)
         {
             
         }
-        else if (type == menuType.pause)
+        else if (Type == MenuType.Pause)
         {
             
         }
-        else if (type == menuType.end)
+        else if (Type == MenuType.End)
         {
             
         }
