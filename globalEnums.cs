@@ -3,7 +3,7 @@ namespace Chess_csharp;
     public enum Colors
     {
         White,
-        Black
+        Black 
     }
     
     public enum PieceType
@@ -26,7 +26,6 @@ namespace Chess_csharp;
     public enum MenuType
     {
         Start, 
-        Game,
         Singleplayer,
         Multiplayer, 
         Lan,
@@ -34,8 +33,22 @@ namespace Chess_csharp;
         Pause,
         End,
         None
-}
-    
+    }
+
+    public enum ButtonAction
+    {
+        ToStart,
+        ToGame, 
+        ToMultiplayer,
+        ToLan,
+        ToOnline,
+        ToSingleplayer,
+        ToPause,
+        OpponentSelect,
+        Exit,
+        Toggle
+    }
+
     public enum GameType
     {
         Single,
