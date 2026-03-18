@@ -35,15 +35,18 @@ namespace Chess_csharp;
         None
     }
 
-    public enum ButtonAction
+    public enum ButtAct //My awesome abbreviation for "Button Action"
     {
         ToStart,
         ToGame, 
-        ToMultiplayer,
-        ToLan,
-        ToOnline,
-        ToSingleplayer,
-        ToPause,
+        Multiplayer,
+        Lan,
+        Online,
+        Singleplayer,
+        bSelect,
+        wSelect,
+        Pause,
+        Resume, 
         OpponentSelect,
         Exit,
         Toggle

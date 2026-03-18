@@ -11,9 +11,10 @@ using System.Text;
 
 class Program
 {
+    private Game g = new Game();
+    
     static void Main()
     {
-        Game g = new Game();
         Game.Run();
     }
 }

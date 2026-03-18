@@ -6,47 +6,102 @@ using SFML.System;
 
 public class Button
 {
-    private Vector2f Pos;
-    private Vector2f Dims;
-    private Texture Image;
-    private Texture PImage;
-    private Sprite Sprit;
-    private Sprite PSprit;
-    private ButtonAction Act;
-    private string Text;
-    private bool Pressed;
+    private Vector2f _pos; //Button position (located @ top left corner of texture/sprite)
+    private Vector2f _dims; //Button dimensions
+
+    private Texture _image; //Regular, unpressed image
+    private Texture _pimage; //Pressed image
+    private Sprite _sprit; //Regular, unpressed sprite
+    private Sprite _psprit; //Pressed sprite
+
+    //All types of possible buttons
+    private ButtAct _act;
+
+    private List<ButtAct> _actions = //All possible button functionalities
+    [
+        ButtAct.Singleplayer,
+        ButtAct.Multiplayer,
+        ButtAct.wSelect,
+        ButtAct.bSelect,
+        ButtAct.Online,
+        ButtAct.Lan,
+        ButtAct.Pause,
+        ButtAct.Resume,
+        ButtAct.OpponentSelect,
+        ButtAct.Exit,
+        ButtAct.Toggle,
+        ButtAct.ToStart,
+        ButtAct.ToGame
+    ];
+
+    private List<string> _names = //Names corresponding to action (used for loading texture files)
+    [
+        "Singleplayer",
+        "Multiplayer",
+        "wSelect",
+        "bSelect",
+        "Online",
+        "Lan",
+        "Pause",
+        "Resume",
+        "OpponentSelect",
+        "Exit",
+        "Toggle",
+        "ToStart",
+        "ToGame"
+    ];
+
+    private List<Vector2f> _positions = //FIGURE THESE OUT
+    [
+        
+    ];
+
+private List<Vector2f> _possDims = //Possible button dimensions
+    [
+        (150, 50),
+        (50, 50)
+    ];
     
-    public Button(ButtonAction action, Vector2f position, Vector2f dimensions, string text) 
+    private string? _text;
+
+    private bool _pressed = false;
+    
+    public Button(ButtAct action) //String assignment loop
     {
-        Act = action;
-        Pos = position;
-        Dims = dimensions;
-        Image = new Texture("res/" +  text + ".png");
-        PImage = new Texture("res/" + text + "_pressed.png");
-        Text = text;
-        Sprit = new Sprite(Image);
-        PSprit = new Sprite(PImage);
-        Sprit.Position = Pos;
+        for (int i = 0; i < _actions.Count; i++)
+        {
+            if (_actions[i] == action)
+            {
+                _text = _names[i];
+            }
+        }
+        
+        _act = action;
+        _image = new Texture("res/" +  _text + ".png");
+        _pimage = new Texture("res/" + _text + "_pressed.png");
+        _sprit = new Sprite(_image);
+        _psprit = new Sprite(_pimage);
+        
     }
 
     public void DrawButton(RenderWindow win)
     {
-        win.Draw(Sprit);
+        win.Draw(_sprit);
     }
 
-    public bool Activated(Vector2f pos) //Button clicking functionality 
+    public bool Activated(Vector2f position) //Button clicking functionality 
     {
-        if (Pressed && Sprit.GetGlobalBounds().Contains(pos)) //Button was pressed and released while mouse was in bounds
+        if (_pressed && _sprit.GetGlobalBounds().Contains(position)) //Button was pressed and released while mouse was in bounds
         {
-            Pressed = false;
+            _pressed = false;
             return true;
         }
-        else if (Pressed && !Sprit.GetGlobalBounds().Contains(pos)) //Pressed, but mouse was out of bounds upon release
+        else if (_pressed && !_sprit.GetGlobalBounds().Contains(position)) //Pressed, but mouse was out of bounds upon release
         {
-            Pressed = false;
+            _pressed = false;
             return false;
         }
-        else if (!Pressed) //Was never pressed, nothing happens
+        else if (!_pressed) //Was never pressed, nothing happens
         {
             return false;
         }
